@@ -10,7 +10,7 @@ export default withAuth(
         const role = request.nextauth.token?.role
         const email = request.nextauth.token?.email
         if (role){
-            if (role !== 'Admin' && role !== "Mod" || email !== env.NEXT_PUBLIC_ADMIN_EMAIL) {
+            if (role !== 'Admin' && role !== "Mod" && email !== env.NEXT_PUBLIC_ADMIN_EMAIL) {
                 return NextResponse.rewrite(
                     new URL("/misc/denied", request.url)
                 )
